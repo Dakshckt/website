@@ -28,7 +28,7 @@ Markdown==3.8.2
 MarkupSafe==3.0.3
 mysql-connector-python==9.4.0
 mysqlclient==2.2.7
-numpy==1.26.4
+numpy
 openai==2.6.1
 packaging==25.0
 pandas==2.3.1
