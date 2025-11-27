@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<style>
+
+    *{
+        font-family: porsche next , sans-serif;
+    }
+
+</style>
+
+<body>
+
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand text-primary fs-3" href="#">
+                Dharmendra Patel
+            </a>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8 pb-3">
+
+                <form action="/home/" method="post">
+                    {% csrf_token %}
+                    <div class="pt-3">
+                        <label for="type" class="form-label">Select Type</label>
+                        <select class="form-control" name="type" id="type">
+                            <option value="-1" selected>Select option</option>
+                            <option value="0">Bill</option>
+                            <option value="1">Quatation</option>
+                        </select>
+                    </div>
+                    <div class="pt-3">
+                        <label for="building" class="form-label">Enter Building Name</label>
+                        <input type="text" name="building" class="form-control" id="building">
+                    </div>
+                    <div class="pt-3">
+                        <label for="city" class="form-label">Enter City Name</label>
+                        <input type="text" name="city" class="form-control" id="city">
+                    </div>
+                    <div class="pt-3">
+                        <label for="subject" class="form-label">Enter Subject</label>
+                        <input type="text" name="subject" id="subject" class="form-control">
+                    </div>
+                    <div class="pt-3">
+                        <label for="" class="pb-2">Enter Rows</label>
+                        <div class="row">
+                            {% for i in numbers %}
+                                <div class="col-md-5 col-sm-8 col-12 py-3">
+                                    <input type="text" class="form-control" name="rd{{i}}" id="rd{{i}}" placeholder="Description">
+                                </div>
+                                <div class="col-md-2 col-sm-4 col-4 py-3 border-bottom border-dark">
+                                    <input type="text" class="form-control" name="rr{{i}}" id="rr{{i}}" placeholder="Rate">
+                                </div>
+                                <div class="col-md-2 col-sm-6 col-4 py-3 border-bottom border-dark">
+                                    <input type="text" class="form-control" name="ra{{i}}" id="ra{{i}}" placeholder="Area">
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-4 py-3 border-bottom border-dark">
+                                    <input type="text" class="form-control" name="rt{{i}}" id="rt{{i}}" placeholder="Total">
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="pt-3">
+                        <input type="submit" class="btn btn-primary px-4" value="Generate">
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
